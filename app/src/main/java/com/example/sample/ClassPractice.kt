@@ -21,7 +21,7 @@ open class Human (val name: String ="Anonymous"){
         println("This is so YUMMMMYYY~~~")
     }
 
-    fun singAsong() {
+    open fun singAsong() {
         println("lalala")
     }
 
@@ -32,10 +32,27 @@ open class Human (val name: String ="Anonymous"){
 // 상속 받으려는 클래스 앞에 open을 작성해야 한다.
 class Korean : Human() {
 
+    // 오버라이드를 이용하여 상속받은 함수의 내용을 변경할 수 있다
+    // 그 대신 해당 함수의 앞에도 반드시 [open]이 있어야 한다
+    override fun singAsong() {
+        super.singAsong()
+        println("라라라")
+    }
 
 }
 
 fun main() {
+
+    val human = Human("JJKKYY") // 자바에서는 new를 이용하지만 코틀린은 생략
+
+    val stranger = Human()  // 이렇게 생성자를 이용할 수 있다. 디폴트값을 설정하였기 때문
+
+    human.eatingCoke()
+
+    val mon = Human("PPP", 35)
+
+    println("this human's name is ${human.name}")
+    println("this human's name is ${stranger.name}")
 
     val korean = Korean()
     korean.singAsong()
