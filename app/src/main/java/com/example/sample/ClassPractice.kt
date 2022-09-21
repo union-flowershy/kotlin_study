@@ -8,18 +8,18 @@ package com.example.sample
 // 기본 생성자 디폴드 값도 아래처럼 입력할 수 있다
 open class Human (val name: String ="Anonymous"){
 
-    // 부생성자 constructor는 항상 주 생성자에게 부여받아야 하기 때문에 this를 이용한다
-    constructor(name : String, age: Int) : this(name) {
-        println("my name is ${name}, ${age}")
-    }
-
-    init {  // init은 주 생성자의 일부라 부생성자 constructor보다 먼저 진행됨
-        println("New human has been born!!")
-    }
-
-    fun eatingCoke() {
-        println("This is so YUMMMMYYY~~~")
-    }
+//    // 부생성자 constructor는 항상 주 생성자에게 부여받아야 하기 때문에 this를 이용한다
+//    constructor(name : String, age: Int) : this(name) {
+//        println("my name is ${name}, ${age}")
+//    }
+//
+//    init {  // init은 주 생성자의 일부라 부생성자 constructor보다 먼저 진행됨
+//        println("New human has been born!!")
+//    }
+//
+//    fun eatingCoke() {
+//        println("This is so YUMMMMYYY~~~")
+//    }
 
     open fun singAsong() {
         println("lalala")
@@ -37,22 +37,23 @@ class Korean : Human() {
     override fun singAsong() {
         super.singAsong()
         println("라라라")
+        println("My name is : ${name}")
     }
 
 }
 
 fun main() {
 
-    val human = Human("JJKKYY") // 자바에서는 new를 이용하지만 코틀린은 생략
-
-    val stranger = Human()  // 이렇게 생성자를 이용할 수 있다. 디폴트값을 설정하였기 때문
-
-    human.eatingCoke()
-
-    val mon = Human("PPP", 35)
-
-    println("this human's name is ${human.name}")
-    println("this human's name is ${stranger.name}")
+//    val human = Human("JJKKYY") // 자바에서는 new를 이용하지만 코틀린은 생략
+//
+//    val stranger = Human()  // 이렇게 생성자를 이용할 수 있다. 디폴트값을 설정하였기 때문
+//
+//    human.eatingCoke()
+//
+//    val mon = Human("PPP", 35)
+//
+//    println("this human's name is ${human.name}")
+//    println("this human's name is ${stranger.name}")
 
     val korean = Korean()
     korean.singAsong()
